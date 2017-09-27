@@ -16,31 +16,24 @@ class TicTacToe {
             
         }
 
-    
-
     nextTurn(rowIndex, columnIndex) {
         if (this.matrix[rowIndex][columnIndex] !== null){
             return ;
         }
         this.matrix[rowIndex][columnIndex] = this.CurrentPlayerSymbol;
-        
-     
         if (this.CurrentPlayerSymbol == 'x'){
             this.CurrentPlayerSymbol = 'o';
         }
        else if (this.CurrentPlayerSymbol == 'o') {
             this.CurrentPlayerSymbol = 'x'; 
-            }
-        
+            }    
     }
-
-    isFinished() {
-        
+   
+    isFinished() {   
             return this.getWinner() !== null || this.noMoreTurns() 
     }
-
+    
     getWinner() {
-      
         for (var i=0; i<3; i++) {
             if (this.matrix[i][0] == this.matrix[i][1] && this.matrix[i][1] == this.matrix[i][2]){
                 return this.matrix[i][0];
@@ -55,11 +48,10 @@ class TicTacToe {
         if (this.matrix[0][2] == this.matrix[1][1] && this.matrix[1][1] == this.matrix[2][0]){
             return this.matrix[1][1];
         }
-        
         else {
             return null;}
     }
-
+    
     noMoreTurns() {
         for (var i=0; i<3; i++){
             for (var j=0; j<3; j++){
@@ -69,7 +61,7 @@ class TicTacToe {
         }
         return true;
     }
-
+    
     isDraw() {
         if (this.noMoreTurns() == true && this.getWinner() == null){
             return true;
@@ -78,11 +70,9 @@ class TicTacToe {
             return false;
         }
     }
-
+   
     getFieldValue(rowIndex, colIndex) {
         return this.matrix[rowIndex][colIndex];
-
     }
 }
-
 module.exports = TicTacToe;
